@@ -1,10 +1,10 @@
-async function getData() {
-    let res =await fetch (
-    "https://emojihub.yurace.pro/api/random"
-    );
+const URL = "https://emojihub.yurace.pro/api/all";
 
-let data = await res.json();
-console.log(data);
-//data.results.forEach((data)) => console.log((data));
+async function getData(URL) {
+    const res = await fetch (URL);
+    console.log(res);
+
+
+
     }
-getData();
+getData(URL);
