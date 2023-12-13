@@ -5,6 +5,6 @@ async function getData() {
 
 let data = await res.json();
 console.log(data);
-//data.results.forEach((object)) => console.log((object));
+//data.results.forEach((data)) => console.log((data));
     }
 getData();
