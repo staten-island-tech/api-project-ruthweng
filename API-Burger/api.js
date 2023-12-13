@@ -1,7 +1,6 @@
-const = URL =
 async function getData() {
     let res =await fetch (
-    "https://collectionapi.metmuseum.org/public/collection/v1/objects"
+    "https://emojihub.yurace.pro/api/random"
     );
 
 let data = await res.json();
