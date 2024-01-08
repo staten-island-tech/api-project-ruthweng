@@ -1,4 +1,4 @@
-import "../styles/style.css";
+import "./styles/style.css";
 
 
 async function getData(url) {
@@ -19,17 +19,18 @@ async function getData(url) {
 
 //getData("https://valorant-api.com/v1/maps");
 
+
 function create(uuid) {
     const api =`https://valorant-api.com/v1/maps/${uuid}`;
     getData(api);
-}
+} 
 
 const createCard = function (maps) {
     document.querySelector("api-response").innerHTML = `<div class="class-col1">
         <h3>${maps.displayName}</h3>
         <h4>${maps.narrativeDescription}</h4>
         <h4>${maps.coordinates}</h4>
-        <h4>${maps.tacticalDesciption}
+        <h4>${maps.tacticalDesciption}</h4>
         </div>
         <div class="card-col2">
             <img class="images" src="${maps.displayIcon}" alt="img of map" ${
