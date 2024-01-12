@@ -1,5 +1,6 @@
 import "./styles/style.css";
 
+const url = "https://valorant-api.com/v1/maps";
 
 async function getData(url) {
     try {
@@ -17,7 +18,7 @@ async function getData(url) {
     }
 }
 
-//getData("https://valorant-api.com/v1/maps");
+getData(url);
 
 
 function create(uuid) {
@@ -25,19 +26,23 @@ function create(uuid) {
     getData(api);
 } 
 
+create();
+
 const createCard = function (maps) {
     document.querySelector("api-response").innerHTML = `<div class="class-col1">
-        <h3>${maps.displayName}</h3>
-        <h4>${maps.narrativeDescription}</h4>
+        <h2>${maps.displayName}</h3>
+        <h3>${maps.narrativeDescription}</h4>
         <h4>${maps.coordinates}</h4>
-        <h4>${maps.tacticalDesciption}</h4>
+        <h5>${maps.tacticalDesciption}</h4>
         </div>
         <div class="card-col2">
             <img class="images" src="${maps.displayIcon}" alt="img of map" ${
                 maps.displayName
             }
             </div>`;
-};
+}; 
+
+
 
 
 
@@ -52,4 +57,5 @@ console.log(data);
 //data.results.forEach((object)) => console.log((object));
     }
 getData();
+
 */
