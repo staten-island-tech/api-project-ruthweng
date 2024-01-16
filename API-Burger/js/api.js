@@ -1,46 +1,46 @@
 import "./styles/style.css";
+import { DOMselectors } from "./dom";
 
-const url = "https://valorant-api.com/v1/maps";
+const API = "https://valorant-api.com/v1/maps";
 
-async function getData(url) {
+async function getData(API) {
     try {
-        const response = await fetch(url);
-        if (response.status < 200 || response.status > 299) {
-            console.log(response.status);
-            throw error(response);
-        } else {
+        const response = await fetch(API);
+        if (response.status !=200) {
+            throw new Error(response.statusText);
+        }
             const data = await response.json();
             console.log(data);
-            createCard(data.data)
-        }
-    } catch (error) {
-        console.log(error);
+            createCard(data.items);
+        
+    } catch (error){
+        console.log(error)
+        if (error.message === 'Error');
+        errorMessage('Error 404: Failed to Load Resource')
     }
 }
 
-getData(url);
+getData(API);
 
 
-function create(uuid) {
-    const api =`https://valorant-api.com/v1/maps/${uuid}`;
-    getData(api);
-} 
+function createCard(arr){
+    DOMselectors.container.innerHTML= ' ';
+    arr.forEach((items) => {
+        DOMselectors.container.insertAdjacentHTML("beforeend", 
+        `
+        <div class="card">
+        <h2 class="name"> ${items.displayName}</h2>
+        <img class="card-img" src="${items.displayIcon}" alt="img of map"> </img>
+        <h5 class="description" > ${items.narrativeDescription}</h5>
+        <h5 class="coordinates" > ${items.coordinates}</h5>
+        <h5 class="tacticalDescription" > ${items.tacticalDesciption}</h5>
+        </div>`
 
-create();
+    );
+    });
+}
 
-const createCard = function (maps) {
-    document.querySelector("api-response").innerHTML = `<div class="class-col1">
-        <h2>${maps.displayName}</h3>
-        <h3>${maps.narrativeDescription}</h4>
-        <h4>${maps.coordinates}</h4>
-        <h5>${maps.tacticalDesciption}</h4>
-        </div>
-        <div class="card-col2">
-            <img class="images" src="${maps.displayIcon}" alt="img of map" ${
-                maps.displayName
-            }
-            </div>`;
-}; 
+
 
 
 
