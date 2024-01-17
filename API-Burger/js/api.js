@@ -1,59 +1,55 @@
 import "./styles/style.css";
 import { DOMselectors } from "./dom";
 
-
 const API = "https://valorant-api.com/v1/maps";
 
 async function getData(API) {
     try {
         const response = await fetch(API);
-        if (response.status !=200) {
-            throw new Error(response.statusText);
+
+        if (!response.ok) {
+            throw new Error(`HTTP error! Status: ${response.status}`);
         }
-            const data = await response.json();
-            console.log(data);
-            createCard(data.items);
-        
-    } catch (error){
-        console.log(error)
-        if (error.message === 'Error');
-        errorMessage('Error 404: Failed to Load Resource')
+
+        const data = await response.json();
+        console.log(data);
+        createCard(data.data);
+    } catch (error) {
+        console.error(error);
+        errorMessage('Error 404: Failed to Load Resource');
     }
 }
 
 getData(API);
 
-
-function createCard(arr){
-    arr.forEach((items) => {
-
+function createCard(arr) {
+    arr.forEach((item) => {
         DOMselectors.container.insertAdjacentHTML("beforeend", 
         `
         <div class="card">
-        <h2 class="name"> ${items.displayName}</h2>
-        <img class="card-img" src="${items.displayIcon}" alt="img of map"> </img>
-        <h5 class="description" > ${items.narrativeDescription}</h5>
-        <h5 class="coordinates" > ${items.coordinates}</h5>
-        <h5 class="tacticalDescription" > ${items.tacticalDesciption}</h5>
+            <h2 class="name">${item.displayName}</h2>
+            <img class="card-img" src="${item.displayIcon}" alt="img of map">
+            <h5 class="description">${item.narrativeDescription}</h5>
+            <h5 class="coordinates">${item.coordinates}</h5>
+            <h5 class="tacticalDescription">${item.tacticalDesciption}</h5>
         </div>`
-
-    );
+        );
     });
 }
 
 function clearCards() {
-    DOMselectors.container.innerHTML='';
+    DOMselectors.container.innerHTML = '';
 }
 
-
-function errorMessage(message){
+function errorMessage(message) {
     alert(message);
 }
 
-DOMselectors.submit.addEventListener("click", function (){
+DOMselectors.submit.addEventListener("click", function (event) {
     event.preventDefault();
     clearCards();
-})
+});
+
 
 
 
