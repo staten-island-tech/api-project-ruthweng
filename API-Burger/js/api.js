@@ -47,7 +47,7 @@ function errorMessage(message) {
 
 DOMselectors.form.addEventListener("submit", async function (event) {
     event.preventDefault();
-    findMaps(DOMSelectors.input.value);
+    findMaps(DOMselectors.input.value);
     DOMselectors.input.value = "";
     clear();
   });
