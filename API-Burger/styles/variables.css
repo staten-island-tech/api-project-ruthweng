@@ -1,14 +1,13 @@
 :root {
-    --color: rgb(54, 78, 174, 0.8);
+    --color: rgba(54, 78, 174, 0.8);
     --black: rgba(0, 0, 0, 0.6);
-    --white: #ffffff:
+    --white: #ffffff;
 
-
-/* text size */
---h1: 10rem;
---h2: 2rem;
---h3: 7rem;
---h5: 4rem;
+    /* text size */
+    --h1: 10rem;
+    --h2: 2rem;
+    --h3: 7rem;
+    --h5: 4rem;
 }
 
 h1 {
@@ -19,12 +18,10 @@ h2 {
     font-size: var(--h2);
 }
 
-
 h3 {
     font-size: var(--h3);
 }
 
 h5 {
     font-size: var(--h5);
-    
 }
