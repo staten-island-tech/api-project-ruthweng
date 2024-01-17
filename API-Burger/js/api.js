@@ -1,5 +1,5 @@
 import "../styles/style.css";
-import { DOMselectors } from "./DOM";
+import { DOMselectors } from "./dom";
 
 const API = "https://valorant-api.com/v1/maps";
 
@@ -43,6 +43,46 @@ function clearCards() {
 
 function errorMessage(message) {
     alert(message);
+}
+
+
+async function findMaps() {
+    try {
+        const ok = DOMselectors.input.value.toLowerCase();
+        const API = `https://valorant-api.com/v1/maps`
+        const response = await fetch(API);
+        const data = await response.json();
+        await search(data, ok);
+    } catch (error) {
+        console.log("You're Done", error);
+        DOMselectors.cards.insertAdjacentHTML(
+            "beforeend"
+            `
+            <div class="card">
+                <h2 class="name">${item.displayName}</h2>
+                <img class="card-img" src="${item.displayIcon}" alt="img of map">
+                <h5 class="description">${item.narrativeDescription}</h5>
+                <h5 class="coordinates">${item.coordinates}</h5>
+                <h5 class="tacticalDescription">${item.tacticalDesciption}</h5>
+            </div>`
+            
+        );
+    }
+}
+
+async function search(data, ok) {
+    if (data.error) {
+        throw new error(
+            "No map here!"
+        );
+    } else {
+        const blah = data.results.filter((arr) =>
+        maps.name.toLowerCase().includes(ok)
+        );
+        if (blah.length > 0) {
+            blah.forEach((arr) )
+        }
+    }
 }
 
 DOMselectors.submit.addEventListener("click", function (event) {
