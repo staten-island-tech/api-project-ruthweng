@@ -7,7 +7,7 @@ body,
     margin: 0;
     box-sizing: border-box;
     font-size: 62.5%;
-    color: var(--white);
+    /* color: var(--white); */
     font-family: Arial, Helvetica, sans-serif;
     text-transform: uppercase;
 }
@@ -27,14 +27,16 @@ h6 {
 }
 
 .card {
-    height: 70vh;
+    height: 80vh;
     width: 25vw;
     display: flex;
+
     flex-direction: column;
     justify-items: center;
-    margin: 1rem auto;
+    margin: 5rem auto;
     border-radius: 1rem;
     transition: all 0.3s;
+    background-color: var(--white);
 }
 
 .card:hover {
@@ -66,6 +68,8 @@ h6 {
     object-fit: contain;
     padding-top: 1px; /* Adjusted padding for consistency */
     padding-bottom: 0;
+    margin-top: 3rem auto;
+    margin-bottom: 3rem auto;
 }
 
 @media screen and (max-width: 1200px) {

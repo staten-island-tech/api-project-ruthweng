@@ -1,5 +1,5 @@
-import "./styles/style.css";
-import { DOMselectors } from "./dom";
+import "../styles/style.css";
+import { DOMselectors } from "./DOM";
 
 const API = "https://valorant-api.com/v1/maps";
 
