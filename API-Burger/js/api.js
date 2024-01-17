@@ -1,6 +1,7 @@
 import "./styles/style.css";
 import { DOMselectors } from "./dom";
 
+
 const API = "https://valorant-api.com/v1/maps";
 
 async function getData(API) {
@@ -24,8 +25,8 @@ getData(API);
 
 
 function createCard(arr){
-    DOMselectors.container.innerHTML= ' ';
     arr.forEach((items) => {
+
         DOMselectors.container.insertAdjacentHTML("beforeend", 
         `
         <div class="card">
@@ -40,9 +41,19 @@ function createCard(arr){
     });
 }
 
+function clearCards() {
+    DOMselectors.container.innerHTML='';
+}
 
 
+function errorMessage(message){
+    alert(message);
+}
 
+DOMselectors.submit.addEventListener("click", function (){
+    event.preventDefault();
+    clearCards();
+})
 
 
 
