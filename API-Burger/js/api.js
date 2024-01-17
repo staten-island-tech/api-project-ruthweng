@@ -16,7 +16,7 @@ async function getData(API) {
         createCard(data.data);
     } catch (error) {
         console.error(error);
-        errorMessage('Error 404: Failed to Load Resource');
+        errorMessage('Error 404: Youre done');
     }
 }
 
