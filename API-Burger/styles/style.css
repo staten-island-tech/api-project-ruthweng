@@ -13,11 +13,7 @@ body,
 }
 
 body {
-    background-color: var(-color);
-}
-
-h1 {
-    font-size: var(--h1)
+    background-color: var(--color); /* Corrected variable name */
 }
 
 h1,
@@ -40,76 +36,58 @@ h6 {
     border-radius: 1rem;
     transition: all 0.3s;
 }
-.card:hover{
+
+.card:hover {
     transform: scale(1.1);
 }
-.card-img{
+
+.card-img {
     height: 75%;
     width: 100%;
     border-radius: 1rem;
     object-fit: cover;
 }
+
 #container {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
     margin-top: 10rem;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
 }
 
-#form
-{
-   font-size: var(--h5);
-   text-align: center;
-}
-.description{
-    object-fit: contain;
-    padding-top: 4.5px;
-    padding-bottom: 0px
-}
-.coordinates{
-    object-fit: contain;
-    padding-top: 1px;
-    padding-bottom: 0px;
-}
-.tacticalDescription{
-    object-fit: contain;
-    padding-top: 1px;
-    padding-bottom: 0px;
+#form {
+    font-size: var(--h5);
+    text-align: center;
 }
 
+.description,
+.coordinates,
+.tacticalDescription {
+    object-fit: contain;
+    padding-top: 1px; /* Adjusted padding for consistency */
+    padding-bottom: 0;
+}
 
 @media screen and (max-width: 1200px) {
-
     .box-row {
         width: 40%;
-    }
-
-}
-
-@media screen and (max-width: 1080) {
-
-    .box-row {
-        width: 40%;
-
     }
 }
 
-@media screen and (max-width: 768) {
-
+@media screen and (max-width: 1080px) {
     .box-row {
         width: 40%;
     }
+}
 
+@media screen and (max-width: 768px) {
+    .box-row {
+        width: 40%;
+    }
 }
 
 @media screen and (max-width: 480px) {
-
     .box-row {
         width: 40%;
     }
-
 }
